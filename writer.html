@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Writer Dashboard — Right For You</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/js/all.min.js"></script>
+  <script defer src="script.js"></script>
+</head>
+<body data-page="writer">
+  <aside class="sidebar">
+    <a class="brand side" href="index.html"><i class="fa-solid fa-pen-nib"></i> Right For You</a>
+    <nav>
+      <a class="active" href="writer.html"><i class="fa-solid fa-gauge"></i> Overview</a>
+      <a href="#work"><i class="fa-solid fa-briefcase"></i> My work</a>
+      <a href="index.html"><i class="fa-solid fa-arrow-right-from-bracket"></i> Logout</a>
+    </nav>
+  </aside>
+
+  <main class="main">
+    <header class="page-head"><h2>Writer Dashboard</h2></header>
+
+    <section class="stats">
+      <div class="stat"><span id="w_total">0</span><p>Total</p></div>
+      <div class="stat"><span id="w_progress">0</span><p>In progress</p></div>
+      <div class="stat"><span id="w_completed">0</span><p>Completed</p></div>
+      <div class="stat"><span id="w_due">0</span><p>Due payments</p></div>
+    </section>
+
+    <section id="work" class="card card-lg">
+      <h3><i class="fa-solid fa-briefcase"></i> My assigned work</h3>
+      <div id="writerList" class="list"></div>
+    </section>
+  </main>
+</body>
+</html>

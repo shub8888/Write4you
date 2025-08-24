@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Admin Monitor — Right For You</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/js/all.min.js"></script>
+  <script defer src="script.js"></script>
+</head>
+<body data-page="admin">
+  <aside class="sidebar">
+    <a class="brand side" href="index.html"><i class="fa-solid fa-pen-nib"></i> Right For You</a>
+    <nav>
+      <a class="active" href="admin.html"><i class="fa-solid fa-gauge"></i> Overview</a>
+      <a href="#all"><i class="fa-solid fa-table-list"></i> All assignments</a>
+      <a href="index.html"><i class="fa-solid fa-arrow-right-from-bracket"></i> Logout</a>
+    </nav>
+  </aside>
+
+  <main class="main">
+    <header class="page-head"><h2>Admin Monitor</h2></header>
+
+    <section class="stats">
+      <div class="stat"><span id="ad_total">0</span><p>Total</p></div>
+      <div class="stat"><span id="ad_pending">0</span><p>Pending</p></div>
+      <div class="stat"><span id="ad_progress">0</span><p>In progress</p></div>
+      <div class="stat"><span id="ad_completed">0</span><p>Completed</p></div>
+    </section>
+
+    <section id="all" class="card card-lg">
+      <h3><i class="fa-solid fa-table-list"></i> All assignments</h3>
+      <div class="filters">
+        <input id="f_search" type="text" placeholder="Search title / student / writer" oninput="RFY.renderAdminList()" />
+        <select id="f_status" onchange="RFY.renderAdminList()">
+          <option value="">Any status</option>
+          <option>Pending</option>
+          <option>In Progress</option>
+          <option>Completed</option>
+        </select>
+        <select id="f_payment" onchange="RFY.renderAdminList()">
+          <option value="">Any payment</option>
+          <option>Half Paid</option>
+          <option>Fully Paid</option>
+        </select>
+      </div>
+      <div id="adminList" class="list"></div>
+    </section>
+  </main>
+</body>
+</html>

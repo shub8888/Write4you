@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Student Dashboard — Right For You</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/js/all.min.js"></script>
+  <script defer src="script.js"></script>
+</head>
+<body data-page="student">
+  <aside class="sidebar">
+    <a class="brand side" href="index.html"><i class="fa-solid fa-pen-nib"></i> Right For You</a>
+    <nav>
+      <a class="active" href="student.html"><i class="fa-solid fa-gauge"></i> Overview</a>
+      <a href="#post"><i class="fa-solid fa-file-circle-plus"></i> Post assignment</a>
+      <a href="#list"><i class="fa-solid fa-list-check"></i> My assignments</a>
+      <a href="index.html"><i class="fa-solid fa-arrow-right-from-bracket"></i> Logout</a>
+    </nav>
+  </aside>
+
+  <main class="main">
+    <header class="page-head"><h2>Student Dashboard</h2></header>
+
+    <section class="stats">
+      <div class="stat"><span id="s_total">0</span><p>Total</p></div>
+      <div class="stat"><span id="s_pending">0</span><p>Pending</p></div>
+      <div class="stat"><span id="s_progress">0</span><p>In progress</p></div>
+      <div class="stat"><span id="s_completed">0</span><p>Completed</p></div>
+    </section>
+
+    <section id="post" class="card card-lg">
+      <h3><i class="fa-solid fa-file-circle-plus"></i> Post new assignment</h3>
+      <form id="assignmentForm" class="form-grid" onsubmit="return RFY.createAssignment(event)">
+        <div>
+          <label>Title</label>
+          <input id="a_title" type="text" placeholder="e.g., DBMS Mini Project Report" required />
+        </div>
+        <div>
+          <label>Deadline</label>
+          <input id="a_deadline" type="date" required />
+        </div>
+        <div class="col-span-2">
+          <label>Description</label>
+          <textarea id="a_desc" rows="4" placeholder="Describe requirements…" required></textarea>
+        </div>
+        <div>
+          <label>College</label>
+          <input id="a_college" type="text" list="puneColleges" placeholder="Type to search college" />
+          <datalist id="puneColleges"></datalist>
+        </div>
+        <div>
+          <label>Choose writer</label>
+          <select id="a_writer">
+            <option>Writer A</option>
+            <option>Writer B</option>
+            <option>Writer C</option>
+          </select>
+        </div>
+        <button class="btn col-span-2" type="submit">Submit & Record 50% Payment</button>
+      </form>
+      <p class="muted">This demo records payment locally for UI purposes.</p>
+    </section>
+
+    <section id="list" class="card card-lg">
+      <h3><i class="fa-solid fa-list-check"></i> My assignments</h3>
+      <div class="filters">
+        <input id="s_search" type="text" placeholder="Search title / writer" oninput="RFY.renderStudentList()" />
+        <select id="s_status" onchange="RFY.renderStudentList()">
+          <option value="">Any status</option>
+          <option>Pending</option>
+          <option>In Progress</option>
+          <option>Completed</option>
+        </select>
+        <select id="s_payment" onchange="RFY.renderStudentList()">
+          <option value="">Any payment</option>
+          <option>Half Paid</option>
+          <option>Fully Paid</option>
+        </select>
+      </div>
+      <div id="studentList" class="list"></div>
+    </section>
+  </main>
+</body>
+</html>
